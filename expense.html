@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Expense Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="go-back">‹ Go back</a>
+        <h2>💰 My Expense Calculator</h2>
+
+        <form onsubmit="saveExpense(event)">
+            <label for="date">Date</label>
+            <input type="date" id="date" required>
+
+            <label for="amount">Amount (₹)</label>
+            <input type="number" id="amount" placeholder="Enter amount" step="0.01" min="0" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" placeholder="Enter description" required></textarea>
+
+            <button type="submit">Save Expense</button>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
+
+</body>
+</html> 
+ 

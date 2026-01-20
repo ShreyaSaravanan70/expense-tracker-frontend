@@ -1,0 +1,283 @@
+/* ---------------- GENERAL RESET ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------------- BODY ---------------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e7bcd6 0%, #f773cb 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.home-card {
+            background: white;
+            width: 50%;
+            max-width: 700px;
+            padding: 40px 100px;
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+            text-align: center;
+        }
+
+  .home-title {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    color: #333;
+
+    /* 3D effect with shadows on all sides */
+    text-shadow: 
+        2px 2px 2px rgba(0,0,0,0.2),   /* bottom-right */
+        -2px -2px 2px rgba(0,0,0,0.2), /* top-left */
+        2px -2px 2px rgba(0,0,0,0.2),  /* top-right */
+        -2px 2px 2px rgba(0,0,0,0.2);  /* bottom-left */
+}
+
+
+.action-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.action-row button {
+    flex: 1;               /* make buttons take equal width */
+    max-width: 200px;      /* optional, limits width */
+    padding: 16px 0;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(135deg, #e7bcd6 0%, #f773cb 100%);
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 20px rgba(167,53,144,0.35);
+}
+
+.action-row button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(167,53,144,0.45);
+}
+
+.action-row button:active {
+    transform: scale(0.97);
+}
+
+        .primary-action {
+            padding: 16px 34px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(135deg, #e7bcd6 0%, #f773cb 100%);
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(167,53,144,0.35);
+        }
+
+        .primary-action:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(167,53,144,0.45);
+        }
+
+        .primary-action:active {
+            transform: scale(0.97);
+        }
+
+        @media (max-width: 480px) {
+            .home-title {
+                font-size: 26px;
+            }
+            .primary-action {
+                width: 100%;
+            }
+        }
+
+/* ---------------- MAIN CARD ---------------- */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+/* FrontPageImage */
+.tracker-image {
+    border-radius: 7px;
+    box-shadow: 0 0 50px 15px rgba(255, 105, 180, 0.4); /* soft, flowing pink shadow */
+}
+
+/* ---------------- TITLE ---------------- */
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+}
+.go-back {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #a73590;
+    text-decoration: none; /* removes underline */
+}
+
+.go-back:hover {
+    color: #ea66a8;
+}
+
+
+/* ---------------- FORM LABELS ---------------- */
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+}
+
+/* ---------------- INPUTS ---------------- */
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #a73590;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* ---------------- SAVE BUTTON ---------------- */
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    background: linear-gradient(135deg, #e7bcd6 0%, #f773cb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ---------------- RECENT EXPENSES BUTTON ---------------- */
+.toggle-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #f1f3f5;
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.toggle-btn:hover {
+    background: #e9ecef;
+}
+
+/* ---------------- EXPENSE LIST ---------------- */
+ul {
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+}
+
+/* ---------------- EXPENSE ITEM ---------------- */
+ul li {
+    padding: 14px;
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 5px solid #ea66a8;
+    font-size: 15px;
+    color: #333;
+}
+
+/* ---------------- EMPTY STATE ---------------- */
+.empty-state {
+    text-align: center;
+    padding: 25px;
+    color: #999;
+    font-style: italic;
+}
+
+/* ---------------- HIDDEN CLASS (for JS toggle) ---------------- */
+.hidden {
+    display: none;
+}
+
+/* ---------------- MOBILE FRIENDLY ---------------- */
+@media (max-width: 480px) {
+    .container {
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    button, .toggle-btn {
+        font-size: 14px;
+    }
+
+    ul li {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-btn {
+    height: 30px;
+    width: 30px;
+    background: #e98dbb;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    color: #333;
+    margin: 10px;
+    padding: 5px;
+    
+}
+
+.delete-btn:hover {
+    transform: scale(1.2);
+}

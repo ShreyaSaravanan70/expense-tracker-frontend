@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="home-card">
+        <div class="home-title">EXPENSE TRACKER</div>
+        <img src="FrontPageImage.png" alt="Expense Tracker" class="tracker-image">
+        <div class="action-row">
+            <button
+                class="primary-action"
+                onclick="location.href='expense.html'">
+                + Add Expense
+            </button>
+
+             <button onclick="window.location.href='recent.html?show=true'">Recent Expenses</button>
+
+
+        <ul id="list" class="hidden"></ul>
+
+            <!-- Future buttons go here -->
+            <!-- <button class="primary-action">View Reports</button> -->
+        </div>
+    </div>
+    <script src="script.js" defer></script>
+
+</body>
+</html>
