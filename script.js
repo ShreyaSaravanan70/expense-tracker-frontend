@@ -22,7 +22,7 @@ function loadExpenses() {
                 return;
             }
 
-            data.forEach((expense, index) => {
+            data.forEach(expense => {
                 const li = document.createElement("li");
                 li.className = "expense-item";
 
@@ -34,7 +34,8 @@ function loadExpenses() {
                 btn.type = "button";
                 btn.textContent = "🗑";
 
-                btn.addEventListener("click", () => deleteExpense(index));
+                // ✅ DELETE USING MONGODB _id
+                btn.addEventListener("click", () => deleteExpense(expense._id));
 
                 li.appendChild(text);
                 li.appendChild(btn);
@@ -48,27 +49,7 @@ function loadExpenses() {
 }
 
 /* =======================
-   DELETE EXPENSE
-======================= */
-function deleteExpense(index) {
-    if (!confirm("Delete this expense?")) return;
-
-    fetch(`${API}/delete/${index}`, {
-        method: "POST"
-    })
-        .then(res => {
-            if (!res.ok) throw new Error("Delete failed");
-            return res.json();
-        })
-        .then(() => loadExpenses())
-        .catch(err => {
-            console.error(err);
-            alert("Failed to delete expense");
-        });
-}
-
-/* =======================
-   SAVE EXPENSE
+   SAVE EXPENSE (MongoDB)
 ======================= */
 function saveExpense(e) {
     e.preventDefault();
@@ -89,7 +70,9 @@ function saveExpense(e) {
 
     fetch(API, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(expense)
     })
         .then(res => {
@@ -99,12 +82,33 @@ function saveExpense(e) {
         .then(() => {
             document.querySelector("form").reset();
             loadExpenses();
+            alert("Expense saved successfully ✅");
         })
         .catch(err => {
             console.error(err);
             alert("Failed to save expense");
         })
         .finally(() => saving = false);
+}
+
+/* =======================
+   DELETE EXPENSE (MongoDB)
+======================= */
+function deleteExpense(id) {
+    if (!confirm("Delete this expense?")) return;
+
+    fetch(`${API}/${id}`, {
+        method: "DELETE"
+    })
+        .then(res => {
+            if (!res.ok) throw new Error("Delete failed");
+            return res.json();
+        })
+        .then(() => loadExpenses())
+        .catch(err => {
+            console.error(err);
+            alert("Failed to delete expense");
+        });
 }
 
 /* =======================
@@ -125,8 +129,10 @@ function toggleExpenses() {
    EVENT LISTENERS
 ======================= */
 document.addEventListener("DOMContentLoaded", () => {
-    if (document.getElementById("list")) loadExpenses();
+    loadExpenses();
 
     const form = document.querySelector("form");
-    if (form) form.addEventListener("submit", saveExpense);
+    if (form) {
+        form.addEventListener("submit", saveExpense);
+    }
 });
